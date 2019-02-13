@@ -2,16 +2,9 @@ import AppKit
 import Foundation
 
 let ITEM_SIZE = CGSize(width: 1024, height: 1024)
-let LOGO_PATH = "/Users/Karainon/Desktop/logo.png"
+let LOGO_PATH = URL(fileURLWithPath: "/Users/Karainon/Desktop/logo.png")
 
-let image = NSImage(contentsOf: URL(fileURLWithPath: "/Users/Karainon/Desktop/logo.png"))!
-image.backgroundColor = NSColor.red
-let imageView = ImageView(image: image)
-imageView.frame.size = ITEM_SIZE
-imageView.backgroundColor = NSColor.red
-imageView.needsDisplay = true
-imageView.needsLayout = true
+let TARGET_PATH = URL(fileURLWithPath: "/Users/Karainon/Desktop/a/target.png")
 
-let target = NSImage(data: imageView.dataWithPDF(inside: imageView.bounds))!
-target.savePNG(to: URL(fileURLWithPath: "/Users/Karainon/Desktop/a/target.png"))
-print("Hello, world! AppKit")
+let generator = IconGenerator(path: LOGO_PATH, size: ITEM_SIZE)
+generator.save(to: TARGET_PATH, color: .green)
