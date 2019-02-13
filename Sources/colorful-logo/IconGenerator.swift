@@ -22,8 +22,9 @@ class IconGenerator {
         self.size = size
     }
     
-    func save(to url: URL, color: NSColor) {
-        view.backgroundColor = color
+    func save(to url: URL, tint: NSColor, background: NSColor) {
+        view.image = image.tint(tint)
+        view.backgroundColor = background
         view.needsDisplay = true
         view.needsLayout = true
         let recolor = NSImage(data: view.dataWithPDF(inside: view.bounds))
