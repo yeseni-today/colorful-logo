@@ -25,6 +25,7 @@
 		3F0E54942213F15B006EC695 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E54932213F15B006EC695 /* ColorExtensions.swift */; };
 		3F2B43E02213C686008FE2B6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B43DF2213C686008FE2B6 /* View.swift */; };
 		3F4E650F2213BCFA009BD87B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E650E2213BCFA009BD87B /* Extensions.swift */; };
+		3FE8930522181AD80046E9C2 /* PlistGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE8930422181AD80046E9C2 /* PlistGenerator.swift */; };
 		OBJ_22 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_40 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* XCTestManifests.swift */; };
@@ -53,6 +54,7 @@
 		3F0E54932213F15B006EC695 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		3F2B43DF2213C686008FE2B6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		3F4E650E2213BCFA009BD87B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3FE8930422181AD80046E9C2 /* PlistGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistGenerator.swift; sourceTree = "<group>"; };
 		OBJ_12 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* colorful_logoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorful_logoTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				3F0E54932213F15B006EC695 /* ColorExtensions.swift */,
 				3F2B43DF2213C686008FE2B6 /* View.swift */,
 				3F0E54912213DC7A006EC695 /* IconGenerator.swift */,
+				3FE8930422181AD80046E9C2 /* PlistGenerator.swift */,
 			);
 			name = "colorful-logo";
 			path = "Sources/colorful-logo";
@@ -222,6 +225,7 @@
 			files = (
 				OBJ_22 /* main.swift in Sources */,
 				3F0E54942213F15B006EC695 /* ColorExtensions.swift in Sources */,
+				3FE8930522181AD80046E9C2 /* PlistGenerator.swift in Sources */,
 				3F4E650F2213BCFA009BD87B /* Extensions.swift in Sources */,
 				3F0E54922213DC7A006EC695 /* IconGenerator.swift in Sources */,
 				3F2B43E02213C686008FE2B6 /* View.swift in Sources */,
