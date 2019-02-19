@@ -31,4 +31,9 @@ class IconGenerator {
         recolor?.savePNG(to: url)
     }
     
+    func save(to url: URL) {
+        let recolor = NSImage(data: view.dataWithPDF(inside: view.bounds))
+        recolor?.savePNG(to: url)
+    }
+    
 }

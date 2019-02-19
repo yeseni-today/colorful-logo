@@ -51,18 +51,6 @@ fileprivate let BUNDLE_ICON_TEMPLATE =
             <dict>
                 ${item}
             </dict>
-
-            <key>UINewsstandIcon</key>
-                <dict>
-                    <key>CFBundleIconFiles</key>
-                        <array>
-                            <string></string>
-                        </array>
-                    <key>UINewsstandBindingEdge</key>
-                        <string>UINewsstandBindingEdgeLeft</string>
-                    <key>UINewsstandBindingType</key>
-                        <string>UINewsstandBindingTypeMagazine</string>
-                </dict>
         </dict>
 """
 
