@@ -12,14 +12,17 @@ class IconGenerator {
     
     var size: CGSize
     
+    var type: OutputType
+    
     lazy var view: ImageView = {
         $0.frame.size = self.size
         return $0
     }(ImageView(image: image))
     
-    init(path: URL, size: CGSize) {
+    init(path: URL, type: OutputType) {
         self.image = NSImage(contentsOf: path)!
-        self.size = size
+        self.type = type
+        self.size = type.size
     }
     
     func save(to url: URL, tint: NSColor, background: NSColor) {

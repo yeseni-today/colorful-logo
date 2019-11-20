@@ -10,38 +10,60 @@ import Foundation
 
 class PlistGenerator {
     
-    var iconNames: Set<String> =  Set<String>()
+    var iconNames: Set<String> = Set<String>()
     
     var generated: String {
-        var items = [String]()
-        iconNames.forEach { name in
-            items.append(ITEM_TEMPLATE.replacingOccurrences(of: "${icon_name}", with: name))
-        }
-        let itemsJoined = items.joined(separator: "\n")
-        
-        let iphone = BUNDLE_ICON_TEMPLATE.replacingOccurrences(of: "${ipad}", with: "")
-        let ipad = BUNDLE_ICON_TEMPLATE.replacingOccurrences(of: "${ipad}", with: "~ipad")
-        
-        let iphoneJoined = iphone.replacingOccurrences(of: "${item}", with: itemsJoined)
-        let ipadJoined = ipad.replacingOccurrences(of: "${item}", with: itemsJoined)
-        
-        return "\(iphoneJoined)\n\(ipadJoined)"
+        return "\(iphone())\n\(ipad())"
     }
     
+    func iphone() -> String {
+        var items = [String]()
+        iconNames.forEach { name in
+            items.append(iconIphoneTemplate.replacingOccurrences(of: "${icon_name}", with: name))
+        }
+        let iphoneTemplate = BUNDLE_ICON_TEMPLATE.replacingOccurrences(of: "${ipad}", with: "")
+        
+        return iphoneTemplate.replacingOccurrences(of: "${item}", with: items.joined(separator: "\n"))
+    }
+    
+    func ipad() -> String {
+        var items = [String]()
+        iconNames.forEach { name in
+            items.append(iconIpadTemplate.replacingOccurrences(of: "${icon_name}", with: name))
+        }
+        let ipadTemplate = BUNDLE_ICON_TEMPLATE.replacingOccurrences(of: "${ipad}", with: "~ipad")
+        
+        return ipadTemplate.replacingOccurrences(of: "${item}", with: items.joined(separator: "\n"))
+    }
 }
 
-fileprivate let ITEM_TEMPLATE =
+fileprivate let iconIphoneTemplate =
 """
     <key>${icon_name}</key>
-        <dict>
-            <key>CFBundleIconFiles</key>
-                <array>
-                    <string>${icon_name}</string>
-                </array>
-            <key>UIPrerenderedIcon</key>
-                <false/>
-        </dict>
+    <dict>
+        <key>CFBundleIconFiles</key>
+            <array>
+                <string>${icon_name}-iphone</string>
+            </array>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+    </dict>
 """
+
+fileprivate let iconIpadTemplate =
+"""
+    <key>${icon_name}</key>
+    <dict>
+        <key>CFBundleIconFiles</key>
+            <array>
+                <string>${icon_name}-ipadpro</string>
+                <string>${icon_name}-ipad</string>
+            </array>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+    </dict>
+"""
+
 
 fileprivate let BUNDLE_ICON_TEMPLATE =
 """

@@ -27,7 +27,7 @@ import CoreImage
 public extension Color {
 
     /// SwifterSwift: Random color.
-    public static var random: Color {
+    static var random: Color {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
@@ -41,7 +41,7 @@ public extension Color {
     ///		NSColor.green.rgbComponents.green -> 255
     ///		UIColor.blue.rgbComponents.blue -> 255
     ///
-    public var rgbComponents: (red: Int, green: Int, blue: Int) {
+    var rgbComponents: (red: Int, green: Int, blue: Int) {
         var components: [CGFloat] {
             let comps = cgColor.components!
             if comps.count == 4 { return comps }
@@ -60,7 +60,7 @@ public extension Color {
     ///		NSColor.green.rgbComponents.green -> 1.0
     ///		UIColor.blue.rgbComponents.blue -> 1.0
     ///
-    public var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
+    var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var components: [CGFloat] {
             let comps = cgColor.components!
             if comps.count == 4 { return comps }
@@ -74,7 +74,7 @@ public extension Color {
 
     // swiftlint:disable next large_tuple
     /// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
-    public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+    var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
@@ -85,7 +85,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Hexadecimal value string (read-only).
-    public var hexString: String {
+    var hexString: String {
         let components: [Int] = {
             let comps = cgColor.components!
             let components = comps.count == 4 ? comps : [comps[0], comps[0], comps[0], comps[1]]
@@ -95,7 +95,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
-    public var shortHexString: String? {
+    var shortHexString: String? {
         let string = hexString.replacingOccurrences(of: "#", with: "")
         let chrs = Array(string)
         guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return nil }
@@ -103,7 +103,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Short hexadecimal value string, or full hexadecimal string if not possible (read-only).
-    public var shortHexOrHexString: String {
+    var shortHexOrHexString: String {
         let components: [Int] = {
             let comps = cgColor.components!
             let components = comps.count == 4 ? comps : [comps[0], comps[0], comps[0], comps[1]]
@@ -117,7 +117,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Alpha of Color (read-only).
-    public var alpha: CGFloat {
+    var alpha: CGFloat {
         return cgColor.alpha
     }
 
@@ -144,7 +144,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Get color complementary (read-only, if applicable).
-    public var complementary: Color? {
+    var complementary: Color? {
         let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
         let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
             if self.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
