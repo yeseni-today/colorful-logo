@@ -131,15 +131,25 @@ func process(logo: URL, outputDir: URL) {
 let logo = URL(fileURLWithPath: "/Users/today/Library/Mobile Documents/com~apple~CloudDocs/Mematom/Logos/logo.png")
 let output = URL(fileURLWithPath: "/Users/today/Desktop/Icons")
 
-process(logo: logo, outputDir: output)
+//process(logo: logo, outputDir: output)
 
-let plistGenerator = PlistGenerator()
-for style in styles {
-    for mode in style.mode {
-        plistGenerator.iconNames.insert("\(style.name)-\(mode.rawValue)")
-    }
+
+func largeLogo() {
+    let generator = IconGenerator(path: logo, size: CGSize(width: 1024, height: 1024))
+    let out = URL(fileURLWithPath: "/Users/today/Desktop/Logo")
+    generator.save(to: out, tint: .flatGreen, background: .black)
 }
-print(plistGenerator.generated)
+
+    largeLogo()
+
+//
+//let plistGenerator = PlistGenerator()
+//for style in styles {
+//    for mode in style.mode {
+//        plistGenerator.iconNames.insert("\(style.name)-\(mode.rawValue)")
+//    }
+//}
+//print(plistGenerator.generated)
 
 
 

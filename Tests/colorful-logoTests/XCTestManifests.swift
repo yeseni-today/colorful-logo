@@ -1,9 +1,9 @@
 import XCTest
-
-#if !os(macOS)
-public func allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(colorful_logoTests.allTests),
-    ]
-}
-#endif
+//
+//#if !os(macOS)
+//public func allTests() -> [XCTestCaseEntry] {
+//    return [
+//        testCase(colorful_logoTests.allTests),
+//    ]
+//}
+//#endif

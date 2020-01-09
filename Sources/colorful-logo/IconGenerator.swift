@@ -6,6 +6,7 @@
 //
 import AppKit
 
+
 class IconGenerator {
     
     var image: NSImage
@@ -14,15 +15,30 @@ class IconGenerator {
     
     var type: OutputType
     
-    lazy var view: ImageView = {
+    @available(OSX 10.12, *)
+    lazy var _view: ImageView = {
         $0.frame.size = self.size
         return $0
     }(ImageView(image: image))
+    
+    var view: ImageView {
+        if #available(OSX 10.12, *) {
+            return _view
+        } else {
+            return ImageView()
+        }
+    }
     
     init(path: URL, type: OutputType) {
         self.image = NSImage(contentsOf: path)!
         self.type = type
         self.size = type.size
+    }
+    
+    init(path: URL, size: CGSize) {
+        self.image = NSImage(contentsOf: path)!
+        self.type = .s120
+        self.size = size
     }
     
     func save(to url: URL, tint: NSColor, background: NSColor) {

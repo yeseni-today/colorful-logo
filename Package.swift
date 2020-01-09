@@ -5,6 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "colorful-logo",
+//    platforms: [
+//        .macOS(.v10_14)
+//    ],
+//    
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
