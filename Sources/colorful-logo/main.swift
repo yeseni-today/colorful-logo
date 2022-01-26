@@ -26,8 +26,8 @@ enum RenderMode: Int {
                 return (Color.white, Color.black)
             }
             return (tint, .black)
-        case .tintForegroundWhiteBackground: return (tint, .flatWhite)
-        case .whiteForegoundTintBackground: return (.flatWhite, tint)
+        case .tintForegroundWhiteBackground: return (tint, .white)
+        case .whiteForegoundTintBackground: return (.white, tint)
         case .blackForegroundTintBackground: return (.flatBlack, tint)
         }
     }
@@ -131,16 +131,16 @@ func process(logo: URL, outputDir: URL) {
 let logo = URL(fileURLWithPath: "/Users/today/Library/Mobile Documents/com~apple~CloudDocs/Mematom/Logos/logo.png")
 let output = URL(fileURLWithPath: "/Users/today/Desktop/Icons")
 
-//process(logo: logo, outputDir: output)
+process(logo: logo, outputDir: output)
 
 
-func largeLogo() {
-    let generator = IconGenerator(path: logo, size: CGSize(width: 1024, height: 1024))
-    let out = URL(fileURLWithPath: "/Users/today/Desktop/Logo")
-    generator.save(to: out, tint: .flatGreen, background: .black)
-}
-
-    largeLogo()
+//func largeLogo() {
+//    let generator = IconGenerator(path: logo, size: CGSize(width: 1024, height: 1024))
+//    let out = URL(fileURLWithPath: "/Users/today/Desktop/Logo")
+//    generator.save(to: out, tint: .flatGreen, background: .black)
+//}
+//
+//    largeLogo()
 
 //
 //let plistGenerator = PlistGenerator()
